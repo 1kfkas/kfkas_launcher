@@ -1,3 +1,13 @@
+# Create folder if doesn't exist
+
+import os
+
+if not os.path.isdir('./Download'):
+    pathD = os.path.join("./Download")
+    os.mkdir(pathD)
+if not os.path.isdir('./Upload'):
+    pathU = os.path.join("./Upload")
+    os.mkdir(pathU)
 
 # Upload
 
