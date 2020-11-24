@@ -11,7 +11,7 @@ else:
 
 # Program
 
-import pygame, math, subprocess
+import pygame, math, subprocess, requests, os, shutil
 from pygame.locals import *
 
 pygame.init()
@@ -32,6 +32,8 @@ hue = 0
 # Mouse Variable
 
 mouseSprite = pygame.image.load(path+'Mouse.png')
+print(mouseSprite)
+
 mousePos = pygame.mouse.get_pos()
 pygame.mouse.set_visible(False)
 
@@ -73,8 +75,13 @@ while True:
         pygame.quit()
         sys.exit()
 
-    if keys[K_U]:
+    if keys[K_u]:
+        url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/update.py"
+        r = requests.get(url)
+        open('update.py', 'wb').write(r.content)
+
         subprocess.run("python update.py")
+        pygame.quit()
         sys.exit()
 
     # Change Background Color
