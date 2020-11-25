@@ -1,4 +1,4 @@
-import requests, os, sys, subprocess
+import requests, os
 
 # Update main.py
 
