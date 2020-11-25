@@ -38,7 +38,7 @@ open(pathC+'fileSynch.py', 'wb').write(r.content)
 
 # Update System
 
-pathS = os.path.join("./System/")
+pathS = os.path.join("./System/Sprites/")
 
 if not os.path.exists(pathS):
     os.mkdir(pathS)
@@ -74,6 +74,11 @@ url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Bac
 r = requests.get(url)
 
 open(pathS+'Background.png', 'wb').write(r.content)
+
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Exit.png"
+r = requests.get(url)
+
+open(pathS+'Exit.png', 'wb').write(r.content)
 
 # Update Version
 
