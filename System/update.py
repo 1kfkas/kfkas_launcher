@@ -46,7 +46,7 @@ if not os.path.exists(pathS):
 if exists(pathS+"Mouse.png"):
     os.remove(pathS+"Mouse.png")
 
-url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Mouse.png"
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Sprites/Mouse.png"
 r = requests.get(url)
 
 open(pathS+'Mouse.png', 'wb').write(r.content)
@@ -54,7 +54,7 @@ open(pathS+'Mouse.png', 'wb').write(r.content)
 if exists(pathS+"Cloud.png"):
     os.remove(pathS+"Cloud.png")
 
-url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Cloud.png"
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Sprites/Cloud.png"
 r = requests.get(url)
 
 open(pathS+'Cloud.png', 'wb').write(r.content)
@@ -62,7 +62,7 @@ open(pathS+'Cloud.png', 'wb').write(r.content)
 if exists(pathS+"Update.png"):
     os.remove(pathS+"Update.png")
     
-url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Update.png"
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Sprites/Update.png"
 r = requests.get(url)
 
 open(pathS+'Update.png', 'wb').write(r.content)
@@ -70,12 +70,12 @@ open(pathS+'Update.png', 'wb').write(r.content)
 if exists(pathS+"Background.png"):
     os.remove(pathS+"Background.png")
     
-url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Background.png"
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Sprites/Background.png"
 r = requests.get(url)
 
 open(pathS+'Background.png', 'wb').write(r.content)
 
-url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Exit.png"
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Sprites/Exit.png"
 r = requests.get(url)
 
 open(pathS+'Exit.png', 'wb').write(r.content)
