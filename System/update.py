@@ -1,4 +1,4 @@
-import requests, os, sys
+import requests, os, sys, subprocess
 
 # Update main.py
 
@@ -89,3 +89,6 @@ open('version.txt', 'wb').write(r.content)
 
 if exists('update.py'):
     os.remove('update.py')
+
+subprocess.run("python main.py")
+    
