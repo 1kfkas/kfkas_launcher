@@ -59,6 +59,22 @@ r = requests.get(url)
 
 open(pathS+'Cloud.png', 'wb').write(r.content)
 
+if exists(pathS+"Update.png"):
+    os.remove(pathS+"Update.png")
+    
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Update.png"
+r = requests.get(url)
+
+open(pathS+'Update.png', 'wb').write(r.content)
+
+if exists(pathS+"Background.png"):
+    os.remove(pathS+"Background.png")
+    
+url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/Background.png"
+r = requests.get(url)
+
+open(pathS+'Background.png', 'wb').write(r.content)
+
 # Update Version
 
 url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/version.txt"
