@@ -21,13 +21,22 @@ pygame.display.set_caption('Menu')
 
 clock = pygame.time.Clock()
 
+loading = False
+
 # Path to Sprites
 
 path = './System/'
 
-# Background Color
+# Background Variables
 
 hue = 0
+bgSprite = pygame.image.load(path+'Background.png')
+bgSprite2 = bgSprite.copy()
+bgX = 0
+bgXAngle = 0
+bgYStart = -200
+bgY = bgYStart
+bgYAngle = 0
 
 # Mouse Variable
 
@@ -42,6 +51,12 @@ pygame.mouse.set_visible(False)
 cloudSprite = pygame.image.load(path+'Cloud.png')
 cloudWidth, cloudHeight = cloudSprite.get_rect().size
 cloudX, cloudY = (128, 128)
+
+# Update Variable
+
+updateSprite = pygame.image.load(path+'Update.png')
+updateWidth, updateHeight = updateSprite.get_rect().size
+updateX, updateY = (256, 128)
 
 # Defs
 
@@ -75,20 +90,11 @@ while True:
         pygame.quit()
         sys.exit()
 
-    if keys[K_u]:
-        url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/update.py"
-        r = requests.get(url)
-        open('update.py', 'wb').write(r.content)
-
-        subprocess.run("python update.py")
-        pygame.quit()
-        sys.exit()
-
     # Change Background Color
 
     color = pygame.Color(0)
     color.hsla = (hue, 100, 40, 50)
-    hue = hue + 0.05
+    hue += 0.2
 
     if(hue > 360):
         hue = 0
@@ -97,13 +103,53 @@ while True:
 
     # Draw Cloud
 
-    if getCollision(mousePos, (cloudX+cloudWidth/2, cloudY+cloudHeight/2), 32):
-        display.blit(cloudSprite, (cloudX, cloudY))
+    #if getCollision(mousePos, (cloudX+cloudWidth/2, cloudY+cloudHeight/2), 32):
+    display.blit(cloudSprite, (cloudX, cloudY))
+
+    # Draw Update
+
+    if getCollision(mousePos, (updateX+updateWidth/2, updateY+updateHeight/2), 32):
+        url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/update.py"
+        r = requests.get(url)
+        open('update.py', 'wb').write(r.content)
+
+        subprocess.run("python update.py")
+        pygame.quit()
+        sys.exit()
+    
+    display.blit(updateSprite, (updateX, updateY))
+
+    # Draw Background
+
+    bgX+=1
+
+    if bgX > 800:
+        bgX = 0
+
+    bgXAngle += 0.01
+
+    if bgXAngle > 10:
+        bgXAngle = -10
+
+    if loading:
+        if bgYStart > -200:
+            bgYStart-=10
     else:
-        display.blit(cloudSprite, (cloudX, cloudY))
+        if bgYStart < 300:
+            bgYStart+=10
+
+    if not loading:
+        bgYAngle += 1
+    bgY = bgYStart + math.sin(bgYAngle/100)*32
+
+    pygame.draw.rect(display, (0, 30, 60), (0, bgY+150, 800, 700))
+    display.blit(pygame.transform.rotate(bgSprite, math.cos(bgXAngle)), (bgX, bgY))
+    display.blit(pygame.transform.rotate(bgSprite, math.cos(bgXAngle)), (bgX-800, bgY))
 
     # Draw Mouse
 
     display.blit(mouseSprite, mousePos)
+
+    print(clock.get_fps())
 
     pygame.display.flip()
