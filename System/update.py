@@ -87,8 +87,6 @@ open('version.txt', 'wb').write(r.content)
 
 # Delete Update File
 
-subprocess.run("python main.py")
-
-#if exists('update.py'):
-#    os.remove('update.py')
+if exists('update.py'):
+    os.remove('update.py')
     
