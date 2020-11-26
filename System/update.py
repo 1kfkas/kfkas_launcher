@@ -1,11 +1,13 @@
 import requests, os
 
+exists = os.path.exists
+
 # Update main.py
 
 url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/main.py"
 r = requests.get(url)
 
-if os.path.exists('main.py'):
+if exists('main.py'):
     os.remove('main.py')
     
 open('main.py', 'wb').write(r.content)
@@ -16,8 +18,6 @@ url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/Cloud/file
 r = requests.get(url)
 
 pathC = os.path.join("./Cloud/")
-
-exists = os.path.exists
 
 if not exists(pathC):
     os.mkdir(pathC)
