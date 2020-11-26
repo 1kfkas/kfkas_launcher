@@ -1,13 +1,16 @@
 # Create folder if doesn't exist
 
-import os
+import os, pygame, sys
+from pygame.locals import *
 
-if not os.path.isdir('./Download'):
-    pathD = os.path.join("./Download")
+if not os.path.isdir('./Cloud/Download'):
+    pathD = os.path.join("./Cloud/Download")
     os.mkdir(pathD)
-if not os.path.isdir('./Upload'):
-    pathU = os.path.join("./Upload")
+if not os.path.isdir('./Cloud/Upload'):
+    pathU = os.path.join("./Cloud/Upload")
     os.mkdir(pathU)
+
+# PyGame
 
 # Upload
 
