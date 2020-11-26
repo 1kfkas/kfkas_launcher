@@ -122,6 +122,8 @@ def getCollision(pos1, pos2, size):
 
 close = False
 
+#music = False
+
 #pygame.mixer.music.load(pathM+'Hotline.mp3')
 #pygame.mixer.music.play(loops=1, start=0.0, fade_ms = 10000)
 
@@ -150,6 +152,16 @@ while True:
     if close and loading and bgYStart <= -200:
         pygame.quit()
         sys.exit()
+
+    # Play Music
+
+    #if exists('./Music/') and not music and keys[K_m]:
+    #    if exists('song.mp3'):
+    #        pygame.mixer.music.load('song.mp3')
+    #        pygame.mixer.music.play(loops=1, start=0.0, fade_ms=0)
+    #        music = True
+        #else:
+            #subprocess.run('python ./Music/music.py')
 
     # Change Background Color
 
