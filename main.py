@@ -10,7 +10,7 @@ else:
     sys.exit("\nSorry, our program don't have support for your system\n")
 
 # Version
-
+ 
 version="0.0.2"
 
 # Program
