@@ -174,18 +174,19 @@ while True:
 
     # Draw Update
 
-    #if getCollision(mousePos, (updateX+updateWidth/2, updateY+updateHeight/2), 32):
-    #    url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/update.py"
-    #    r = requests.get(url)
-    #    open('update.py', 'wb').write(r.content)
+    if updateSprite != False:
+        if getCollision(mousePos, (updateX+updateWidth/2, updateY+updateHeight/2), 32) and mouses[0]:
+            url = "https://raw.githubusercontent.com/JaoKFkas/kfkas_launcher/main/System/update.py"
+            r = requests.get(url)
+            open('update.py', 'wb').write(r.content)
 
-    #    subprocess.run("python update.py")
-    #    pygame.quit()
-    #    sys.exit()
+            subprocess.run("python update.py")
+            pygame.quit()
+            sys.exit()
 
-    updateY = updateYStart - bgYStart/5
+        updateY = updateYStart - bgYStart/5
 
-    display.blit(updateSprite, (updateX, updateY))
+        display.blit(updateSprite, (updateX, updateY))
 
     # Draw Background
 
